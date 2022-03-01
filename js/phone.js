@@ -15,7 +15,7 @@ const showPhoneDetails = (phones) => {
             div.innerHTML = `<div class=""container>
             <div class="row m-2 text-center">
             <div class="col-md-4 ">
-            <div class="card p-5 ">
+            <div class="card p-5 rounded-5">
       <div class="pro-img">
             <img class="w-50" src="${phone.image}" alt="">
 
@@ -33,7 +33,7 @@ const showPhoneDetails = (phones) => {
 
 
             <div class="col-md-4">
-            <div class="card p-5 ">
+            <div class="card p-5 rounded-5">
       <div class="pro-img">
             <img class="w-50" src="${phone.image}" alt="">
 
@@ -51,7 +51,7 @@ const showPhoneDetails = (phones) => {
 
 
             <div class="col-md-4 ">
-            <div class="card p-5 ">
+            <div class="card p-5 rounded-5">
       <div class="pro-img">
             <img class="w-50" src="${phone.image}" alt="">
 
@@ -84,7 +84,7 @@ const details = (id) => {
       fetch(url)
             .then(res => res.json())
             .then(data => setdetails(data.data))
-      console.log(url)
+      // console.log(url)
 };
 
 const setdetails = (info) => {
@@ -92,9 +92,15 @@ const setdetails = (info) => {
       <img class="w-25" src="${info.image}" alt="">
       <h3>Name: ${info.name}</h3>
       <h4>Brand: ${info.brand}</h4>
-      <h5>ReleaseDate: ${info.releaseDate}</h5>
-      <h5>Storage: ${info.mainFeatures.storage}</h5>
-      <h5>Storage: ${info.mainFeatures.displaySize}</h5>
+      <h4>ReleaseDate: ${info.releaseDate}</h4>
+      <div><h3>mainFeatures</h3>
+      <p><span class=" fs-5">DisplaySize:</span> ${info.mainFeatures['displaySize']}</p>
+      <p><span class="fs-5">memory:</span> ${info.mainFeatures['memory']}</p>
+      <p><span class="fs-5">storage:</span> ${info.mainFeatures['storage']}</p>
+      <p><span class="fs-5">chipSet:</span> ${info.mainFeatures['chipSet']}</p>
+      </div>
+     
+      
 
       </div>
       `;
