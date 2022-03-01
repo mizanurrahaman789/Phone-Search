@@ -1,3 +1,4 @@
+
 const allphone = () => {
       document.getElementById('phone-container').innerHTML = '';
       document.getElementById('details-container').innerHTML = '';
@@ -9,10 +10,15 @@ const allphone = () => {
             .then(data => showPhoneDetails(data.data))
       // console.log(url)
 }
+const phoneSpinner = phoneDisplay => {
+      document.getElementById('spinner').style.display = phoneDisplay;
+}
 
 // card section
 const showPhoneDetails = (phones) => {
       for (const phone of phones) {
+            phoneSpinner('block')
+
             const parent = document.getElementById('phone-container')
             const div = document.createElement('div')
             div.innerHTML = `<div class=""container>
@@ -77,10 +83,14 @@ const showPhoneDetails = (phones) => {
       `;
             parent.appendChild(div)
             // console.log(phone)
+            phoneSpinner('none')
+
       }
 
 }
-//second 
+
+
+//details section
 
 const details = (id) => {
       const url = `https://openapi.programming-hero.com/api/phone/${id}`;
@@ -90,6 +100,7 @@ const details = (id) => {
       // console.log(url)
 };
 
+//details container
 const setdetails = (info) => {
       document.getElementById('details-container').innerHTML = `<div>
       <img class="w-25" src="${info.image}" alt="">
@@ -107,5 +118,5 @@ const setdetails = (info) => {
 
       </div>
       `;
-      console.log(info)
+      // console.log(info)
 }
