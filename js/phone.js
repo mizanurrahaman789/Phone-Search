@@ -120,3 +120,5 @@ const setdetails = (info) => {
       `;
       // console.log(info)
 }
+
+
